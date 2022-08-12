@@ -12,10 +12,10 @@
    <div class="card-header py-3">
       <div class="row">
          <div class="col-8">
-            <h6 class="m-0 font-weight-bold text-primary w-75 p-2"><?php echo e(__('sentence.All Prescriptions')); ?></h6>
+            <h6 class="m-0 font-weight-bold text-primary w-75 p-2">Toutes les ordonnances</h6>
          </div>
          <div class="col-4">
-            <a href="<?php echo e(route('prescription.create')); ?>" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i> <?php echo e(__('sentence.New Prescription')); ?></a>
+            <a href="<?php echo e(route('prescription.create')); ?>" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i> Nouvelle ordonnance</a>
          </div>
       </div>
    </div>
@@ -27,9 +27,9 @@
                <tr>
                   <th>ID</th>
                   <th><?php echo e(__('sentence.Patient')); ?></th>
-                  <th class="text-center"><?php echo e(__('sentence.Created')); ?></th>
-                  <th class="text-center"><?php echo e(__('sentence.Content')); ?></th>
-                  <th class="text-center"><?php echo e(__('sentence.Actions')); ?></th>
+                  <th class="text-center">Créer</th>
+                  <th class="text-center">Contenu</th>
+                  <th class="text-center">Actions</th>
                </tr>
             </thead>
             <tbody>
@@ -51,7 +51,7 @@
                      <a href="<?php echo e(url('prescription/view/'.$prescription->id)); ?>" class="btn btn-outline-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                      <a href="<?php echo e(url('prescription/pdf/'.$prescription->id)); ?>" class="btn btn-outline-primary btn-circle btn-sm"><i class="fas fa-print"></i></a>
                      <a href="<?php echo e(url('prescription/edit/'.$prescription->id)); ?>" class="btn btn-outline-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
-                     <a class="btn btn-outline-danger btn-circle btn-sm" data-toggle="modal" data-target="#DeleteModal" data-link="<?php echo e(url('prescription/delete/'.$prescription->id)); ?>"><i class="fas fa-trash"></i></a>
+                     <a class="btn btn-outline-danger btn-circle btn-sm" data-toggle="modal" data-target="#DeleteModal" href="<?php echo e(url('prescription/delete/'.$prescription->id)); ?>"><i class="fas fa-trash"></i></a>
                   </td>
                </tr>
                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

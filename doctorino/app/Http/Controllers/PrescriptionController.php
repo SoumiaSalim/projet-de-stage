@@ -13,7 +13,7 @@ use App\Test;
 use Redirect;
 use PDF;
 use Arr;
-
+//['drugs' => $drugs, 'patients' => $patients, 'tests' => $tests]
 class PrescriptionController extends Controller{
     
 
@@ -28,7 +28,7 @@ class PrescriptionController extends Controller{
         $patients = User::where('role','patient')->get();
         $tests = Test::all();
 
-    	return view('prescription.create',['drugs' => $drugs, 'patients' => $patients, 'tests' => $tests]);
+    	return view('prescription.create',compact('drugs','patients','tests'));
     }
 
     public function store(Request $request){
@@ -92,9 +92,7 @@ class PrescriptionController extends Controller{
 
     endif;
 
-		return Redirect()->back()::route('prescription.all')->with('success', 'Prescription Created Successfully!');;
-
-
+		return Redirect()->route('prescription.all')->with('success', 'Prescription Created Successfully!');;
 
     }
 
@@ -280,7 +278,7 @@ class PrescriptionController extends Controller{
     public function destroy($id){
 
         Prescription::destroy($id);
-        return Redirect()->back()::route('prescription.all')->with('success', 'Prescription Deleted Successfully!');;
+        return Redirect()->route('prescription.all')->with('success', 'Prescription Deleted Successfully!');;
 
     }
 }

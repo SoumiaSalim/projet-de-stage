@@ -37,7 +37,7 @@ class PatientController extends Controller
 
     public function edit($id){
     	$patient = User::find($id);
-    	return view('patient.edit',['patient' => $patient]);
+    	return view('prescription.patient.edit',['patient' => $patient]);
     }
 
         public function store_edit(Request $request){
@@ -117,7 +117,7 @@ class PatientController extends Controller
         $invoices = Billing::where('user_id' ,$id)->OrderBy('id','Desc')->get();
         $historys = History::where('user_id' ,$id)->OrderBy('id','Desc')->get();
 
-    	return view('patient.view', [
+    	return view('prescription.patient.view', [
     		'patient' => $patient, 
     		'prescriptions' => $prescriptions, 
     		'appointments' => $appointments, 
